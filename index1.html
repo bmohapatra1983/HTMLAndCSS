@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optum Pro Portal</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Colors */
+      .optum-orange {
+        color: #ff5a00;
+      }
+
+      .optum-blue {
+        color: #002677;
+      }
+
+      .bg-optum-blue {
+        background-color: #002677;
+      }
+
+      /* Container */
+      .container {
+        width: 1450px;
+        margin: 0 auto;
+        padding: 0 150px;
+      }
+
+      /* Header Section */
+      header {
+        padding: 20px 0;
+        width: 100%;
+      }
+
+      header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff5a00;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .header-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .header-links a {
+        text-decoration: none;
+        font-size: 0.875rem;
+      }
+
+      .portal-link {
+        color: #002677;
+        font-weight: 500;
+      }
+
+      .signin-link {
+        color: #000;
+      }
+
+      .signin-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background-color: #e5e5e5;
+        padding: 0px 0;
+        position: relative;
+      }
+
+      .hero-container {
+        padding-top: 50px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content {
+        position: relative;
+        width: 60%;
+        padding: 80px 50px;
+        z-index: 1;
+      }
+
+      .hero-image {
+        position: absolute;
+        /* height: 30%; */
+        bottom: 0;
+        width: 35%;
+        right: 15%;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .hero-heading {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #002677;
+        line-height: 1.2;
+        margin-bottom: 25px;
+      }
+
+      .register-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 10px 30px;
+        border: 2px solid #002677;
+        border-radius: 50px;
+        color: #002677;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .register-btn:hover {
+        background-color: #002677;
+        color: white;
+      }
+
+      .environment-nav {
+        display: flex;
+        margin-top: 40px;
+        margin-right: 40px;
+      }
+
+      .env-btn {
+        display: inline-block;
+        padding: 8px 60px;
+        margin-right: 50px;
+        background-color: #002677;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        text-align: center;
+        min-width: 100px;
+      }
+
+      .env-btn:last-child {
+        margin-right: 0;
+        position: relative;
+        left: 10px; /* Slight overlap with image */
+      }
+
+      /* Main Content Section */
+      .content-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .content-container {
+        display: flex;
+      }
+
+      .content-text {
+        width: 600px;
+        padding-right: 50px;
+      }
+
+      .content-image {
+        width: 400px;
+      }
+
+      .content-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .content-heading {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #002677;
+        margin-bottom: 25px;
+      }
+
+      .content-description {
+        color: #555;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .resource-links {
+        margin-top: 50px;
+      }
+
+      .resource-link {
+        display: block;
+        margin-bottom: 15px;
+        color: #002677;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .resource-link:hover {
+        transform: scale(1.05);
+      }
+
+      /* Journey Section */
+      .journey-section {
+        padding: 100px 0;
+        background-color: #fbf9f4;
+      }
+
+      .journey-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .journey-image {
+        width: 45%;
+      }
+
+      .journey-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .journey-content {
+        width: 45%;
+        padding-left: 100px;
+      }
+
+      .journey-heading {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #002677;
+        margin-bottom: 45px;
+      }
+
+      .journey-description {
+        color: #555;
+        margin-bottom: 70px;
+        line-height: 1.8;
+      }
+
+      .journey-btn {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #002677;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .journey-btn:hover {
+        background-color: #001a5c;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 30px 0;
+        background-color: #fff;
+        border-top: 1px solid #eaeaea;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.875rem;
+      }
+
+      .footer-links {
+        display: flex;
+      }
+
+      .footer-link {
+        margin-left: 30px;
+        color: #002677;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        scale: 1.2;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <h1>Optum</h1>
+        <div class="header-links">
+          <a href="#" class="portal-link">Optum Pro Portal</a>
+          <a href="#" class="signin-link">Sign In</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h2 class="hero-heading">
+            Improve workflow with centralized access<br />
+            to all Optum tools in one secure place
+          </h2>
+          <a href="#" class="register-btn">Register for Optum Pro</a>
+          <div class="environment-nav">
+            <a href="#" class="env-btn">Dev</a>
+            <a href="#" class="env-btn">QA</a>
+            <a href="#" class="env-btn">Stage</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://cdn-stage.linkhealth.com/site-builder/548/398548f5-ca88-41f2-b6d1-667de80a42eb/pre-login-hero-image-web-trans.png"
+            alt="Healthcare professionals reviewing information"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="content-section">
+      <div class="container content-container">
+        <div class="content-text">
+          <h2 class="content-heading">
+            Simplify your workflows with Optum Pro
+          </h2>
+          <p class="content-description">
+            The Optum Pro portal provides clinicians and administrators with
+            one-stop access to point-of-care support and resources to streamline
+            administrative and clinical tasks. Its customized experience
+            simplifies everyday tasks by improving workflow with centralized
+            access to all Optum tools in one secure place. To access the portal,
+            you will need to create or sign in using a One Healthcare ID.
+          </p>
+          <div class="resource-links">
+            <a href="#" class="resource-link">
+              Accessing Optum Pro - Video overview
+            </a>
+            <a href="#" class="resource-link">
+              Accessing Optum Pro - PDF overview
+            </a>
+          </div>
+        </div>
+        <div class="content-image">
+          <img
+            src="https://cdn-stage.linkhealth.com/site-builder/548/2cce6e85-09c3-47fb-83cb-f7983a262355/offset-577455-brand-sq_web.jpg"
+            alt="Healthcare professional using computer"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+      <div class="container journey-container">
+        <div class="journey-image">
+          <img
+            src="https://cdn-stage.linkhealth.com/site-builder/548/2dce4154-ebed-40a1-9d6d-600f36953bb9/Screenshot%202024-04-29%20at%2011.31.44%E2%80%AFAM.png"
+            alt="Healthcare professionals discussing"
+          />
+        </div>
+        <div class="journey-content">
+          <h2 class="journey-heading">
+            Start your journey with Optum Health Networks
+          </h2>
+          <p class="journey-description">
+            We're eager and ready to help you make value-based care work for you
+            and your patients. It's time you had an organization built around
+            service to you.
+          </p>
+          <a href="#" class="journey-btn">Join our networks</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="copyright">© Optum 2024</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">About Optum</a>
+          <a href="#" class="footer-link">Clinician Insights</a>
+          <a href="#" class="footer-link">Terms of use</a>
+          <a href="#" class="footer-link">Privacy policy</a>
+          <a href="#" class="footer-link">Accessibility</a>
+          <a href="#" class="footer-link">Vulnerability reporting</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
